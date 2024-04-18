@@ -7,7 +7,7 @@ const SliderSection = () => {
       <div
         id="carouselExampleControls"
         className="carousel slide"
-        data-ride="carousel"
+        data-bs-ride="carousel"
       >
         <div className="carousel-inner">
           <div className="carousel-item active" data-bs-interval="10000">
@@ -32,10 +32,10 @@ const SliderSection = () => {
                             Every Moment Remarkable.
                           </p>
                           <div className="d-flex">
-                            <a href="" className="slider-btn1 mr-3">
+                            <a href="#about" className="slider-btn1 mr-3">
                               Read More
                             </a>
-                            <a href="" className="slider-btn2">
+                            <a href="#contact" className="slider-btn2">
                               Contact Us
                             </a>
                           </div>
@@ -69,10 +69,10 @@ const SliderSection = () => {
                             ad minim veniam, quis nostrud exercitation ullamco l
                           </p>
                           <div className="d-flex">
-                            <a href="" className="slider-btn1 mr-3">
+                            <a href="#about" className="slider-btn1 mr-3">
                               Read More
                             </a>
-                            <a href="" className="slider-btn2">
+                            <a href="#contact" className="slider-btn2">
                               Contact Us
                             </a>
                           </div>
@@ -106,10 +106,10 @@ const SliderSection = () => {
                             ad minim veniam, quis nostrud exercitation ullamco l
                           </p>
                           <div className="d-flex">
-                            <a href="" className="slider-btn1 mr-3">
+                            <a href="#about" className="slider-btn1 mr-3">
                               Read More
                             </a>
-                            <a href="" className="slider-btn2">
+                            <a href="#contact" className="slider-btn2">
                               Contact Us
                             </a>
                           </div>
@@ -128,7 +128,7 @@ const SliderSection = () => {
             href="#carouselExampleControls"
             role="button"
             data-bs-target="#carouselExampleControls"
-            data-slide="prev"
+            data-bs-slide="prev"
           >
             <span class="carousel-control-prev" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
@@ -137,7 +137,7 @@ const SliderSection = () => {
             className="carousel-control-next"
             href="#carouselExampleControls"
             role="button"
-            data-slide="next"
+            data-bs-slide="next"
           >
             <span class="carousel-control-next" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>

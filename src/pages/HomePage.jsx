@@ -7,6 +7,7 @@ import WhySection from "../components/WhySection";
 import ClientSection from "../components/ClientSection";
 import ContactSection from "../components/ContactSection";
 import InforSection from "../components/InforSection";
+import SliderSection from "../components/SliderSection";
 
 const HomePage = () => {
   return (
@@ -14,6 +15,9 @@ const HomePage = () => {
       <Helmet>
         <title>Home | LuxChronos</title>
       </Helmet>
+      <div className="hero_area_slider">
+        <SliderSection />
+      </div>
       <div className="bg">
         <AboutSection />
         <BrandSection />

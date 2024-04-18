@@ -103,17 +103,19 @@ const ClientSection = () => {
           className="carousel-control-prev"
           href="#carouselExample2Controls"
           role="button"
-          data-slide="prev"
+          data-bs-slide="prev"
         >
-          <span className="sr-only"></span>
+          <span className="carousel-control-prev" aria-hidden="true"></span>
+          <span className="visually-hidden">Previous</span>
         </a>
         <a
           className="carousel-control-next"
           href="#carouselExample2Controls"
           role="button"
-          data-slide="next"
+          data-bs-slide="next"
         >
-          <span className="sr-only"></span>
+          <span className="carousel-control-next" aria-hidden="true"></span>
+          <span className="visually-hidden">Next</span>
         </a>
       </div>
     </section>

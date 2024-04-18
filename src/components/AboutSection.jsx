@@ -3,13 +3,13 @@ import AboutIMG from "../assets/images/about.png";
 
 const AboutSection = () => {
   return (
-    <section className="about_section layout_padding">
+    <section id="about" className="about_section layout_padding">
       <div className="container-fluid">
         <div className="row">
           <div className="col-md-5 offset-md-2">
             <div className="about_detail-box">
-              <h3 className="custom_heading ">About our watch</h3>
-              <p className="">
+              <h3 className="custom_heading ">About us</h3>
+              <p style={{textAlign: "justify", marginRight: "30px"}}>
                 Welcome to LuxChronos, where time meets elegance. At LuxChronos,
                 we pride ourselves on curating a collection of exquisite
                 timepieces that blend craftsmanship with style seamlessly. From

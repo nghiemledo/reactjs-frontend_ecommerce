@@ -10,7 +10,7 @@ const PublicLayout = () => {
     <>
       <header className="hero_area">
         <Header />
-        <SliderSection />
+        {/* <SliderSection /> */}
       </header>
       <main>
         <Outlet />

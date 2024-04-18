@@ -14,7 +14,7 @@ const WhySection = () => {
           Difference
         </p>
       </div>
-      <div className="container">
+      <div className="container" style={{textAlign: "justify", letterSpacing: "0.2px"}}>
         <div className="row">
           <div className="col-md-6">
             <div className="img_box">

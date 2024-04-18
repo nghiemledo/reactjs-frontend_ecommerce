@@ -1,11 +1,16 @@
 import React from "react";
+import logoLuxChoronos from "../assets/images/luxury-shop.png";
 
 const Header = () => {
   return (
     <header className="header_section">
-      <div className="container-fluid ">
+      <div
+        className="container-fluid "
+        style={{ position: "fixed", backgroundColor: "#b5caee", zIndex: "5" }}
+      >
         <nav className="navbar navbar-expand-lg custom_nav-container pt-3">
-          <a className="navbar-brand" href="#">
+          <a className="navbar-brand" href="/">
+            <img src={logoLuxChoronos} />
             <span>LuxChronos</span>
           </a>
           <button
@@ -23,33 +28,36 @@ const Header = () => {
             <div className="d-flex ml-auto flex-column flex-lg-row align-items-center">
               <ul className="navbar-nav custom_navbar-nav">
                 <li className="nav-item active">
-                  <a className="nav-link" href="index.html">
-                    Home <span className="sr-only"></span>
+                  <a className="nav-link" href="#about">
+                    About <span className="sr-only"></span>
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="about.html">
+                  <a className="nav-link" href="#">
+                    Blog <span className="sr-only"></span>
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#watches">
                     {" "}
-                    About{" "}
+                    Our watches{" "}
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="watch.html">
-                    {" "}
-                    Our Watches{" "}
+                  <a className="nav-link" href="#">
+                    Cart
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="contact.html">
-                    Contact us
+                  <a
+                    style={{ color: "white" }}
+                    type="button"
+                    className="nav-link btn btn-secondary"
+                    href="#"
+                  >
+                    Login
                   </a>
                 </li>
-                <form className="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">
-                  <button
-                    className="btn  my-2 my-sm-0 nav_search-btn"
-                    type="submit"
-                  />
-                </form>
               </ul>
             </div>
           </div>

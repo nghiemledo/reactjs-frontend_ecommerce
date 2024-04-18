@@ -1,8 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const BrandSection = () => {
   return (
-    <section className="brand_section layout_padding2">
+    <section id="watches" className="brand_section layout_padding2" style={{paddingTop: "100px"}}>
       <div className="container">
         <div className="brand_heading">
           <h3 className="custom_heading">Our watch brands</h3>
@@ -104,7 +105,7 @@ const BrandSection = () => {
           </div>
         </div>
       </div>
-      <a type="button" href="#" className="btn btn-light">
+      <a type="button" href="/category" className="btn btn-light">
         See more...
       </a>
     </section>

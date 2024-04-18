@@ -2,7 +2,7 @@ import React from "react";
 
 const ContactSection = () => {
   return (
-    <section className="contact_section layout_padding">
+    <section id="contact" className="contact_section layout_padding" style={{paddingTop: "100px"}}>
       <h2 className="custom_heading text-center">NOW CONTACT US</h2>
       <div className="container mt-5 pt-5">
         <form action="">
