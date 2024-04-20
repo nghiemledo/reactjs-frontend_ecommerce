@@ -5,17 +5,47 @@ import { CardText } from "react-bootstrap";
 
 function ProductCard() {
   return (
-    <Card style={{ width: '12rem' }} className="mb-4">
-      <Card.Img variant="top" src="holder.js/100px180" />
-      <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
-      </Card.Body>
-    </Card>
+    <div className="card shadow mb-3">
+      <button className="d-flex justify-content-end btn btn-success ms-auto p-1 bd-highlight" style={{border: "0"}} >
+        <span className="mb-0 text-gray" style={{fontSize: "15px"}}>
+          $299.00
+        </span>
+      </button>
+      <img
+        src="https://product.hstatic.net/200000597439/product/upload_e4a8523c95814dfd8bc68692951b1c8f_grande.jpg"
+        className="card-img-top"
+        alt="black watch"
+      />
+      <div className="card-body">
+        <a href="#" className="h5 card-title">
+          Apple Watch Series 3
+        </a>
+        <h3 className="h6 fw-light text-gray mt-2">
+          Space Gray Aluminum Case with Black Sport Band
+        </h3>
+        <div className="d-flex mt-3">
+          <span className="star fas fa-star text-warning me-1" />
+          <span className="star fas fa-star text-warning me-1" />
+          <span className="star fas fa-star text-warning me-1" />
+          <span className="star fas fa-star text-warning me-1" />
+          <span className="star fas fa-star text-warning" />
+          <span className="badge bg-primary ms-2">4.7</span>
+        </div>
+        <div
+          className="mt-3 w-100"
+          // style={{ maxWidth: "4000px" }}
+        >
+          <a
+            type="button"
+            className="btn btn-primary"
+            style={{ borderRadius: "13px", width: "100%" }}
+            href="#"
+          >
+            <span className="fas fa-cart-plus me-2" /> Add to cart
+          </a>
+        </div>
+      </div>
+    </div>
   );
 }
 

@@ -1,7 +1,6 @@
 import React from "react";
 import downIcon from "../assets/images/down-arrow.png";
 
-
 const CategorySidebar = () => {
   return (
     <div className="flex-shrink-0 p-3" style={{ width: 280 }}>
@@ -24,7 +23,7 @@ const CategorySidebar = () => {
           >
             Man
           </button>
-          <div className="collapse" id="home-collapse" >
+          <div className="collapse" id="home-collapse">
             <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small ms-5 ">
               <li>
                 <a
@@ -145,7 +144,6 @@ const CategorySidebar = () => {
             </ul>
           </div>
         </li>
-        <li className="border-top my-3" />
         <li className="mb-1">
           <button
             className="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
@@ -192,6 +190,68 @@ const CategorySidebar = () => {
             </ul>
           </div>
         </li>
+        <li className="border-top my-3" />
+       
+      
+      <div className="card shadow">
+        <div className="card-body">
+          <h3 className="h5 card-title">Price range</h3>
+          {/* Simple slider */}
+          <div className="input-slider-container">
+            <input
+              id="input-slider-ecommerce"
+              className="form-range"
+              type="range"
+              min={100}
+              max={500}
+            />
+            {/* Input slider values */}
+            <div className="row mt-3 d-none">
+              <div className="col-6">
+                <span
+                  id="input-slider-value"
+                  className="range-slider-value"
+                  data-range-value-low={200}
+                />
+              </div>
+            </div>
+          </div>
+          {/* End of Slider */}
+          <div className="row mb-3">
+            <div className="col-md-6 ">
+              <label htmlFor="priceRangeMin1" className="form-label">
+                Min
+              </label>
+              <input
+                className="form-control"
+                id="priceRangeMin1"
+                placeholder="$0"
+                type="number"
+              />
+            </div>
+            <div className="col-md-6 text-md-end">
+              <label htmlFor="priceRangeMax1" className="form-label">
+                Max
+              </label>
+              <input
+                className="form-control"
+                id="priceRangeMax1"
+                placeholder="$1,000"
+                type="number"
+              />
+            </div>
+          </div>
+          <div className="d-grid">
+            <a href="#" className="btn btn-outline-primary" style={{borderRadius: "15px"}}>
+              Apply
+            </a>
+          </div>
+        </div>
+      </div>
+
+
+      <li className="border-top my-3" />
+
       </ul>
     </div>
   );

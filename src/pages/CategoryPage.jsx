@@ -1,13 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import bannerCategory from "../assets/images/banner-category.jpg";
 import CategorySidebar from "../components/CategorySidebar";
 import ProductCard from "../components/ProductCard";
+import BaseAPI, { endpoints } from "../api/BaseAPI";
 
 const CategoryPage = () => {
+  // const [category, setCategory] = useState([]);
+
+  // useEffect(() => {
+  //   BaseAPI.get(endpoints["category"]).then((res) => {
+  //     setCategory(res.data);
+  //   });
+  // });
   return (
     <div className="category-page container">
+      <Helmet>
+        <title>Category | LuxChronos</title>
+      </Helmet>
       <div className="row">
-        <div className="col-3">
+        <div className="col-3 border-right">
           <CategorySidebar />
         </div>
         <div className="col-lg-9 main-content">
@@ -42,64 +54,6 @@ const CategoryPage = () => {
                       </h5>
                       <a className="btn btn-dark btn-md" href="#">
                         GET YOURS!
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div className="owl-item" style={{ width: 880 }}>
-                  <div className="home-slide home-slide2 banner banner-md-vw banner-sm-vw d-flex align-items-center">
-                    <figure>
-                      <img
-                        alt="category-banenr"
-                        src="images/home/banners/banner-5.jpg"
-                        width={880}
-                        height={280}
-                      />
-                    </figure>
-                    <div className="banner-layer text-uppercase">
-                      <h4 className="m-b-2">
-                        Over 200 products with discounts
-                      </h4>
-                      <h2 className="m-b-3">Great Deals</h2>
-                      <h5 className="d-inline-block mb-0 align-top mr-3 mb-2">
-                        Starting At
-                        <b>
-                          $<em>299</em>99
-                        </b>
-                      </h5>
-                      <a
-                        className="btn btn-dark btn-md"
-                        href="/react/porto/demo1/shop/"
-                      >
-                        Get Yours!
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div className="owl-item" style={{ width: 880 }}>
-                  <div className="home-slide home-slide3 banner banner-md-vw banner-sm-vw  d-flex align-items-center">
-                    <figure>
-                      <img
-                        alt="category-banenr"
-                        src="images/home/banners/banner-6.jpg"
-                        width={880}
-                        height={280}
-                      />
-                    </figure>
-                    <div className="banner-layer text-uppercase">
-                      <h4 className="m-b-2">Up to 70% off</h4>
-                      <h2 className="m-b-3">New Arrivals</h2>
-                      <h5 className="d-inline-block mb-0 align-top mr-4 pr-3 mb-2 ml-0">
-                        Starting At
-                        <b>
-                          $<em>299</em>99
-                        </b>
-                      </h5>
-                      <a
-                        className="btn btn-dark btn-md"
-                        href="/react/porto/demo1/shop/"
-                      >
-                        Get Yours!
                       </a>
                     </div>
                   </div>
@@ -160,7 +114,28 @@ const CategoryPage = () => {
             </div>
           </nav>
           <div className="row skeleton-body skel-shop-products  loaded">
-            <div className="col-3 col-sm-3">
+            <div className="col-4 col-sm-4">
+              <a href="">
+                <ProductCard />
+              </a>
+            </div>
+            <div className="col-4 col-sm-4">
+              <a href="">
+                <ProductCard />
+              </a>
+            </div>
+            <div className="col-4 col-sm-4">
+              <a href="">
+                <ProductCard />
+              </a>
+            </div>
+            <div className="col-4 col-sm-4">
+              <a href="">
+                <ProductCard />
+              </a>
+            </div>
+
+            {/* <div className="col-3 col-sm-3">
               <a href="">
                 <ProductCard />
               </a>
@@ -184,22 +159,7 @@ const CategoryPage = () => {
               <a href="">
                 <ProductCard />
               </a>
-            </div>
-            <div className="col-3 col-sm-3">
-              <a href="">
-                <ProductCard />
-              </a>
-            </div>
-            <div className="col-3 col-sm-3">
-              <a href="">
-                <ProductCard />
-              </a>
-            </div>
-            <div className="col-3 col-sm-3">
-              <a href="">
-                <ProductCard />
-              </a>
-            </div>
+            </div> */}
           </div>
 
           <nav className="toolbox toolbox-pagination">

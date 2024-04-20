@@ -1,7 +1,28 @@
 import React from "react";
 import logoLuxChoronos from "../assets/images/luxury-shop.png";
+import cookies from "react-cookies";
 
 const Header = () => {
+  let user = cookies.load("user");
+  let Authentication = (
+    <>
+      <li className="nav-item">
+        <a className="nav-link" href="/login">
+          Login
+        </a>
+      </li>
+    </>
+  );
+
+  if (user != null) {
+    Authentication = (
+      <li className="nav-item">
+        <a className="nav-link" href="/">
+          {user.username}
+        </a>
+      </li>
+    );
+  }
   return (
     <header className="header_section">
       <div
@@ -28,7 +49,7 @@ const Header = () => {
             <div className="d-flex ml-auto flex-column flex-lg-row align-items-center">
               <ul className="navbar-nav custom_navbar-nav">
                 <li className="nav-item active">
-                  <a className="nav-link" href="#about">
+                  <a className="nav-link" href="/#about">
                     About <span className="sr-only"></span>
                   </a>
                 </li>
@@ -38,7 +59,7 @@ const Header = () => {
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#watches">
+                  <a className="nav-link" href="/category">
                     {" "}
                     Our watches{" "}
                   </a>
@@ -48,16 +69,7 @@ const Header = () => {
                     Cart
                   </a>
                 </li>
-                <li className="nav-item">
-                  <a
-                    style={{ color: "white" }}
-                    type="button"
-                    className="nav-link btn btn-secondary"
-                    href="#"
-                  >
-                    Login
-                  </a>
-                </li>
+                {Authentication}
               </ul>
             </div>
           </div>
