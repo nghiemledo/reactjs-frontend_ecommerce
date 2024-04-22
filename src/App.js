@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
+import AppProvider, { AppContext } from "./states/AppContext";
 import "../src/assets/css/style.css";
 import PublicLayout from "./pages/PublicLayout";
 import HomePage from "./pages/HomePage";
@@ -18,6 +19,7 @@ function App() {
     }, 700);
   }, []);
   return (
+    // <AppProvider>
     <div className="App">
       {loading ? (
         <div className="loading-container">
@@ -36,7 +38,7 @@ function App() {
             <Route path="/" element={<PublicLayout />}>
               <Route path="/" element={<HomePage />} />
               <Route path="/category" element={<CategoryPage />} />
-              <Route path="/signup" element={<Signup />} />
+              <Route path="/register" element={<Signup />} />
               <Route path="/login" element={<Login />} />
             </Route>
             <Route path="*" element={<NotFoundPage />} />
@@ -44,6 +46,7 @@ function App() {
         </div>
       )}
     </div>
+    /* </AppProvider> */
   );
 }
 

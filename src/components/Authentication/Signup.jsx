@@ -1,14 +1,62 @@
-import React from "react";
+import React, { useState } from "react";
 import SignupImg from "../../assets/images/signup-image.jpg";
-import PersonIcon from "../../assets/images/user_456212.png";
+import { Helmet } from "react-helmet";
+import BaseAPI, { endpoints } from "../../api/BaseAPI";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+
+  const handleChange = () => {
+    setError("");
+  };
+
+  const handleRegister = async (event) => {
+    event.preventDefault();
+    if (!username.trim() || !password.trim() || !email.trim()) {
+      setError("Please enter full fields !");
+      return;
+    }
+
+    const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.{8,25})/;
+    if (!passwordRegex.test(password)) {
+      setError(
+        "Password must be 8-25 characters long, contain at least one uppercase letter, and one special character."
+      );
+      return;
+    }
+
+    let response;
+    try {
+      response = await BaseAPI.post(endpoints["register"], {
+        username: username,
+        email: email,
+        password: password,
+      });
+      console.log(response);
+      navigate("/login");
+    } catch (error) {
+      if (error.response.status === 401) {
+        setError("Invalid username or password");
+      } else {
+        setError("An error occurred. Please try again later.");
+      }
+    }
+  };
+
   return (
     <section className="signup">
+      <Helmet>
+        <title>Register | LuxChronos</title>
+      </Helmet>
       <div className="container">
         <div className="signup-content">
           <div className="signup-form">
-            <h2 className="form-title fw-bold">Sign up</h2>
+            <h2 className="form-title fw-bold">Register</h2>
             <form method="POST" className="register-form" id="register-form">
               <div className="form-group">
                 <label htmlFor="name">
@@ -20,6 +68,10 @@ const Signup = () => {
                   id="name"
                   placeholder="Your Name"
                   required
+                  onChange={(e) => {
+                    setUsername(e.target.value);
+                    handleChange();
+                  }}
                 />
               </div>
               <div className="form-group">
@@ -32,6 +84,10 @@ const Signup = () => {
                   id="email"
                   placeholder="Your Email"
                   required
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    handleChange();
+                  }}
                 />
               </div>
               <div className="form-group">
@@ -44,8 +100,17 @@ const Signup = () => {
                   id="pass"
                   placeholder="Password"
                   required
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                    handleChange();
+                  }}
                 />
               </div>
+              {error && (
+                <div className="error-message mb-3">
+                  <i className="zmdi zmdi-alert-circle" /> {error}
+                </div>
+              )}
 
               <div className="form-group">
                 <input
@@ -64,7 +129,7 @@ const Signup = () => {
                   </a>
                 </label>
               </div>
-              <div className="form-group form-button">
+              <div className="form-group form-button" onClick={handleRegister}>
                 <input
                   type="submit"
                   name="signup"

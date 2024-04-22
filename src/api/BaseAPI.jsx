@@ -3,8 +3,10 @@ import cookies from "react-cookies";
 
 export let endpoints = {
   category: "category/",
+  products: "api/v1/product/",
   login: "api/v1/jwt/create/",
   current_user: "api/v1/users/profile/",
+  register: "api/v1/users/",
 };
 
 export let AuthAPI = axios.create({

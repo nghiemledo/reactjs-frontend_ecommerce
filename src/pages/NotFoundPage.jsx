@@ -1,11 +1,15 @@
 import React from "react";
 import "../assets/css/notfound.css";
+import { Helmet } from "react-helmet";
 
 const NotFoundPage = () => {
   return (
     <div className="not-found-page">
+      <Helmet>
+        <title>404-Not found | LuxChronos</title>
+      </Helmet>
       <h1>UH OH! You're lost.</h1>
-      <p className="zoom-area" style={{textAlign: "center"}}>
+      <p className="zoom-area" style={{ textAlign: "center" }}>
         The page you are looking for does not exist. How you got here is a
         mystery. But you can click the button below to go back to the homepage.
       </p>
@@ -22,10 +26,10 @@ const NotFoundPage = () => {
       </section>
       <div className="link-container">
         <a
-        //   target="_blank"
+          //   target="_blank"
           href="/"
           className="more-link"
-          style={{borderRadius: "20px"}}
+          style={{ borderRadius: "20px" }}
         >
           Home
         </a>
