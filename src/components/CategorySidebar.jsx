@@ -3,7 +3,7 @@ import downIcon from "../assets/images/down-arrow.png";
 
 const CategorySidebar = () => {
   return (
-    <div className="flex-shrink-0 p-3" style={{ width: 280 }}>
+    <div className=" flex-shrink-0 p-3" style={{ width: 280 }}>
       <a
         href="#"
         className="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom"
@@ -190,13 +190,14 @@ const CategorySidebar = () => {
             </ul>
           </div>
         </li>
-        <li className="border-top my-3" />
+        {/* <li className="border-top my-3" /> */}
        
       
-      <div className="card shadow">
+      
+
+        {/* <div className="card shadow">
         <div className="card-body">
           <h3 className="h5 card-title">Price range</h3>
-          {/* Simple slider */}
           <div className="input-slider-container">
             <input
               id="input-slider-ecommerce"
@@ -205,7 +206,6 @@ const CategorySidebar = () => {
               min={100}
               max={500}
             />
-            {/* Input slider values */}
             <div className="row mt-3 d-none">
               <div className="col-6">
                 <span
@@ -216,7 +216,6 @@ const CategorySidebar = () => {
               </div>
             </div>
           </div>
-          {/* End of Slider */}
           <div className="row mb-3">
             <div className="col-md-6 ">
               <label htmlFor="priceRangeMin1" className="form-label">
@@ -247,10 +246,9 @@ const CategorySidebar = () => {
             </a>
           </div>
         </div>
-      </div>
+      </div> */}
 
 
-      <li className="border-top my-3" />
 
       </ul>
     </div>

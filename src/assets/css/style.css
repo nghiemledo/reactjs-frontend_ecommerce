@@ -305,20 +305,16 @@ a:focus {
   color: #fcfcfc;
 }
 
-.brand_section .brand_item-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
+ .brand_item-container {
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .brand_item-box {
   width: 265px;
   margin: 30px 10px 0 10px;
+
 }
 
 .brand_img-box {
@@ -1638,8 +1634,20 @@ svg {
   padding: 10px;
 }
 
+/* Category */
+.sort {
+  display: flex;
+  cursor: pointer;
+  position: relative;
+}
+.dropdown-item:hover {
+  color: blue;
+}
+
+/* Category page */
 
 
+/* Các styles khác của sản phẩm nếu cần */
 
 
 

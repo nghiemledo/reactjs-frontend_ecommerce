@@ -9,6 +9,8 @@ import { BeatLoader } from "react-spinners";
 import Signup from "./components/Authentication/Signup";
 import Login from "./components/Authentication/Login";
 import NotFoundPage from "./pages/NotFoundPage";
+import CartPage from "./pages/CartPage";
+import CategoryPage2 from "./pages/CategoryPage2";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -19,7 +21,6 @@ function App() {
     }, 700);
   }, []);
   return (
-    // <AppProvider>
     <div className="App">
       {loading ? (
         <div className="loading-container">
@@ -34,19 +35,21 @@ function App() {
         </div>
       ) : (
         <div>
-          <Routes>
-            <Route path="/" element={<PublicLayout />}>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/category" element={<CategoryPage />} />
-              <Route path="/register" element={<Signup />} />
-              <Route path="/login" element={<Login />} />
-            </Route>
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
+          <AppProvider>
+            <Routes>
+              <Route path="/" element={<PublicLayout />}>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/category" element={<CategoryPage2 />} />
+                <Route path="/register" element={<Signup />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/cart" element={<CartPage />} />
+              </Route>
+              <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+          </AppProvider>
         </div>
       )}
     </div>
-    /* </AppProvider> */
   );
 }
 

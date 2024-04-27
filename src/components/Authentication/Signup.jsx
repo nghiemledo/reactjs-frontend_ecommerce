@@ -22,6 +22,12 @@ const Signup = () => {
       return;
     }
 
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setError("Please enter a valid email address!");
+      return;
+    }
+
     const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.{8,25})/;
     if (!passwordRegex.test(password)) {
       setError(
@@ -144,7 +150,7 @@ const Signup = () => {
             <figure>
               <img src={SignupImg} alt="sing up image" />
             </figure>
-            <a href="/login" className="signup-image-link">
+            <a href="/login/" className="signup-image-link">
               I am already member
             </a>
           </div>

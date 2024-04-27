@@ -83,7 +83,7 @@ const CategoryPage = () => {
                     <option value="price">Sort by price: low to high</option>
                     <option value="price-desc">
                       Sort by price: high to low
-                      {/* <div className="sort-icon">
+                      <div className="sort-icon">
                         <svg
                           viewBox="0 0 24 24"
                           style={{ width: 24, height: 24 }}
@@ -93,8 +93,7 @@ const CategoryPage = () => {
                             d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
                           />
                         </svg>
-                      </div> */}
-                      s
+                      </div>
                     </option>
                   </select>
                 </div>
@@ -134,62 +133,30 @@ const CategoryPage = () => {
                 <ProductCard />
               </a>
             </div>
-
-            {/* <div className="col-3 col-sm-3">
-              <a href="">
-                <ProductCard />
-              </a>
-            </div>
-            <div className="col-3 col-sm-3">
-              <a href="">
-                <ProductCard />
-              </a>
-            </div>
-            <div className="col-3 col-sm-3">
-              <a href="">
-                <ProductCard />
-              </a>
-            </div>
-            <div className="col-3 col-sm-3">
-              <a href="">
-                <ProductCard />
-              </a>
-            </div>
-            <div className="col-3 col-sm-3">
-              <a href="">
-                <ProductCard />
-              </a>
-            </div> */}
           </div>
-
-          <nav className="toolbox toolbox-pagination">
-            <div className="toolbox-item toolbox-show">
-              <label>Show:</label>
-              <div className="select-custom">
-                <select name="count" className="form-control">
-                  <option value={12}>12</option>
-                  <option value={24}>24</option>
-                  <option value={36}>36</option>
-                </select>
-              </div>
-            </div>
-            <ul className="pagination toolbox-item">
-              <li className="page-item active">
-                <a className="page-link" href="/react/porto/demo1/shop/?page=1">
-                  1<span className="sr-only">(current)</span>
+          <nav aria-label="Page navigation example">
+            <ul className="pagination justify-content-center">
+              <li className="page-item disabled">
+                <a className="page-link">Previous</a>
+              </li>
+              <li className="page-item">
+                <a className="page-link" href="#">
+                  1
                 </a>
               </li>
-              <li className="page-item ">
-                <a className="page-link" href="/react/porto/demo1/shop/?page=2">
+              <li className="page-item">
+                <a className="page-link" href="#">
                   2
                 </a>
               </li>
               <li className="page-item">
-                <a
-                  className="page-link page-link-btn"
-                  href="/react/porto/demo1/shop/?page=2"
-                >
-                  <i className="icon-angle-right" />
+                <a className="page-link" href="#">
+                  3
+                </a>
+              </li>
+              <li className="page-item">
+                <a className="page-link" href="#">
+                  Next
                 </a>
               </li>
             </ul>

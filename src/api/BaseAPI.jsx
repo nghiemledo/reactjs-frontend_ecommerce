@@ -2,8 +2,8 @@ import axios from "axios";
 import cookies from "react-cookies";
 
 export let endpoints = {
-  category: "category/",
-  products: "api/v1/product/",
+  category: "api/v1/category/",
+  product: "api/v1/product/",
   login: "api/v1/jwt/create/",
   current_user: "api/v1/users/profile/",
   register: "api/v1/users/",

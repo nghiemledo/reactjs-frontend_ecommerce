@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import logoLuxChoronos from "../assets/images/luxury-shop.png";
 import cookies from "react-cookies";
-import { useNavigate } from "react-router-dom";
-import { BeatLoader } from "react-spinners";
+import { Link, useNavigate } from "react-router-dom";
+import { AppContext } from "../states/AppContext";
+import CartPage from "../pages/CartPage";
 
 const Header = () => {
   let user = cookies.load("user");
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
+
+  const {cartItem} = useContext(AppContext)
 
   const handleLogout = () => {
     cookies.remove("access");
@@ -17,9 +20,9 @@ const Header = () => {
 
   let Authentication = (
     <>
-      <a className="nav-link" href="/login">
+      <Link className="nav-link" to="/login">
         Login
-      </a>
+      </Link>
     </>
   );
 
@@ -28,7 +31,6 @@ const Header = () => {
       <div className="action" style={{ cursor: "pointer", marginTop: "2px" }}>
         <a
           className="nav-link dropdown-toggle"
-          // style={{color: "grey"}}
           onClick={() => setMenuOpen(!menuOpen)}
         >
           <i
@@ -46,19 +48,19 @@ const Header = () => {
           <ul>
             <li>
               <i class="zmdi zmdi-account-o mt-0 me-2" />
-              <a href="/notfound">My profile</a>
+              <a href="/notfound/">My profile</a>
             </li>
             <li>
               <i class="zmdi zmdi-edit mt-0 me-2" />
-              <a href="/notfound">Edit profile</a>
+              <a href="/notfound/">Edit profile</a>
             </li>
             <li>
               <i class="zmdi zmdi-settings mt-0 me-2" />
-              <a href="#">Setting</a>
+              <a href="/notfound/">Setting</a>
             </li>
             <li>
               <i class="zmdi zmdi-help mt-0 me-2" />
-              <a href="#">Help</a>
+              <a href="/notfound/">Help</a>
             </li>
             <li>
               <fa-icon
@@ -90,9 +92,9 @@ const Header = () => {
                   </g>
                 </svg>
               </fa-icon>
-              <a href="#" onClick={handleLogout}>
+              <Link to="#" onClick={handleLogout}>
                 Logout
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -107,10 +109,10 @@ const Header = () => {
         style={{ position: "fixed", backgroundColor: "#b5caee", zIndex: "5" }}
       >
         <nav className="navbar navbar-expand-lg custom_nav-container pt-3">
-          <a className="navbar-brand" href="/">
+          <Link className="navbar-brand"to="/">
             <img src={logoLuxChoronos} alt="LuxChronos Logo" />
             <span>LuxChronos</span>
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -126,25 +128,25 @@ const Header = () => {
             <div className="d-flex ml-auto flex-column flex-lg-row align-items-center">
               <ul className="navbar-nav custom_navbar-nav">
                 <li className="nav-item active">
-                  <a className="nav-link" href="/#about">
+                  <Link className="nav-link" to="/#about">
                     About <span className="sr-only"></span>
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">
+                  <Link className="nav-link" to="#">
                     Blog <span className="sr-only"></span>
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="/category">
+                  <Link className="nav-link" to="/category">
                     {" "}
                     Our watches{" "}
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    Cart
-                  </a>
+                  <Link className="nav-link" to='/cart'>
+                    Cart ({cartItem.length})
+                  </Link>
                 </li>
                 <li className="nav-item">{Authentication}</li>
               </ul>

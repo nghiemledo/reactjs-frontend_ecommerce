@@ -6,7 +6,7 @@ import { CardText } from "react-bootstrap";
 function ProductCard() {
   return (
     <div className="card shadow mb-3">
-      <button className="d-flex justify-content-end btn btn-success ms-auto p-1 bd-highlight" style={{border: "0"}} >
+      <button className="d-flex justify-content-end btn btn-danger ms-auto p-1 bd-highlight" style={{border: "0"}} >
         <span className="mb-0 text-gray" style={{fontSize: "15px"}}>
           $299.00
         </span>
@@ -37,7 +37,7 @@ function ProductCard() {
         >
           <a
             type="button"
-            className="btn btn-primary"
+            className="btn btn-dark"
             style={{ borderRadius: "13px", width: "100%" }}
             href="#"
           >

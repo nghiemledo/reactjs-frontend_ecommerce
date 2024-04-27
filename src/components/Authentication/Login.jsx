@@ -22,6 +22,14 @@ const Login = () => {
       setError("Please enter both username and password");
       return;
     }
+    const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.{8,25})/;
+    if (!passwordRegex.test(password)) {
+      setError(
+        "Password must be 8-25 characters long, contain at least one uppercase letter, and one special character."
+      );
+      return;
+    }
+
     let response;
     try {
       response = await BaseAPI.post(endpoints["login"], {
@@ -62,7 +70,7 @@ const Login = () => {
             <figure>
               <img src={LoginImg} alt="sing up image" />
             </figure>
-            <a href="/register" className="signup-image-link">
+            <a href="/register/" className="signup-image-link">
               Create an account
             </a>
           </div>
