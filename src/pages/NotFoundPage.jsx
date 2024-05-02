@@ -1,6 +1,7 @@
 import React from "react";
 import "../assets/css/notfound.css";
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
 
 const NotFoundPage = () => {
   return (
@@ -25,14 +26,14 @@ const NotFoundPage = () => {
         </span>
       </section>
       <div className="link-container">
-        <a
+        <Link
           //   target="_blank"
-          href="/"
+          to="/"
           className="more-link"
           style={{ borderRadius: "20px" }}
         >
           Home
-        </a>
+        </Link>
       </div>
     </div>
   );

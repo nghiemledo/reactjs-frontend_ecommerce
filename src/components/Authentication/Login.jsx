@@ -1,64 +1,24 @@
 import React, { useState } from "react";
+import { useContext } from "react";
 import { Helmet } from "react-helmet";
 import LoginImg from "../../assets/images/signin-image.jpg";
-import BaseAPI, { endpoints } from "../../api/BaseAPI";
-import cookies from "react-cookies";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { AppContext } from "../../states/AppContext";
 
 const Login = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-
-  const handleChange = () => {
-    setError("");
-  };
+  const {
+    username,
+    setUsername,
+    password,
+    setPassword,
+    error,
+    setError,
+    handleChange,
+    handleLogin,
+  } = useContext(AppContext);
 
   const navigate = useNavigate();
 
-  const handleLogin = async (event) => {
-    event.preventDefault();
-    if (!username.trim() || !password.trim()) {
-      setError("Please enter both username and password");
-      return;
-    }
-    const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.{8,25})/;
-    if (!passwordRegex.test(password)) {
-      setError(
-        "Password must be 8-25 characters long, contain at least one uppercase letter, and one special character."
-      );
-      return;
-    }
-
-    let response;
-    try {
-      response = await BaseAPI.post(endpoints["login"], {
-        username: username,
-        password: password,
-      });
-
-      let accessToken = response.data.access;
-      cookies.save("access", accessToken);
-
-      let user = await BaseAPI.get(endpoints["current_user"], {
-        headers: {
-          Authorization: `Bearer ${cookies.load("access")}`,
-        },
-      });
-
-      cookies.save("user", user.data);
-      navigate("/");
-      window.location.reload();
-    } catch (error) {
-      if (error.response.status === 401) {
-        setError("Invalid username or password");
-      } else {
-        setError("An error occurred. Please try again later.");
-      }
-    }
-  };
-
-  // const user = cookies.load("");
   return (
     <section className="sign-in">
       <Helmet>
@@ -70,12 +30,12 @@ const Login = () => {
             <figure>
               <img src={LoginImg} alt="sing up image" />
             </figure>
-            <a href="/register/" className="signup-image-link">
+            <Link to="/register/" className="signup-image-link">
               Create an account
-            </a>
+            </Link>
           </div>
           <div className="signin-form">
-            <h2 className="form-title fw-bold">Log in</h2>
+            <h2 className="form-title fw-bold">Sign in</h2>
             <form className="register-form" id="login-form">
               <div className="form-group">
                 <label htmlFor="your_name">
@@ -136,28 +96,28 @@ const Login = () => {
                   name="signin"
                   id="signin"
                   className="form-submit"
-                  value="Log in"
-                  onClick={handleLogin}
+                  value="Sign in"
+                  onClick={(event) => handleLogin(event)}
                 />
               </div>
             </form>
             <div className="social-login">
-              <span className="social-label fs-6">Or login with</span>
+              <span className="social-label fs-6">Or Sign in with</span>
               <ul className="socials">
                 <li>
-                  <a href="#">
+                  <Link to="#">
                     <i className="display-flex-center zmdi zmdi-facebook" />
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#">
+                  <Link to="#">
                     <i className="display-flex-center zmdi zmdi-twitter" />
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#">
+                  <Link to="#">
                     <i className="display-flex-center zmdi zmdi-google" />
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

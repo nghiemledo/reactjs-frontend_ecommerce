@@ -6,8 +6,8 @@ const CheckoutSummary = (props) => {
   let checkout = (
     <>
       <div className="error-message mb-3" style={{ fontSize: "14px" }}>
-        <i className="zmdi zmdi-alert-circle" /> You must login to continue
-        check out !
+        <i className="zmdi zmdi-alert-circle" /> You must <Link to="/signin" style={{color: "darkBlue", textDecoration: "underline"}}> login </Link> to
+        continue check out !
       </div>
       <button
         className="btn disabled"
@@ -52,7 +52,7 @@ const CheckoutSummary = (props) => {
   return (
     <div
       className="card border shadow-none mt-3"
-      style={{ backgroundColor: "#EEEEEE" }}
+      style={{ backgroundColor: "#fff" }}
     >
       <div className="card-header bg-transparent border-bottom py-3 px-4">
         <h4
@@ -72,11 +72,11 @@ const CheckoutSummary = (props) => {
               </tr>
               <tr style={{ opacity: "0.5" }}>
                 <td>Shipping Charge :</td>
-                <td className="text-end">$ 25</td>
+                <td className="text-end">Free shipping</td>
               </tr>
               <tr style={{ opacity: "0.5" }}>
                 <td>Estimated Tax : </td>
-                <td className="text-end">$ 18</td>
+                <td className="text-end">Included</td>
               </tr>
               <tr className="bg-light">
                 <th>Total :</th>

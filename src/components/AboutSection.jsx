@@ -1,5 +1,6 @@
 import React from "react";
 import AboutIMG from "../assets/images/about.png";
+import { Link } from "react-router-dom";
 
 const AboutSection = () => {
   return (
@@ -18,7 +19,7 @@ const AboutSection = () => {
                 beauty.
               </p>
               <div>
-                <a href="">Read More</a>
+                <Link to="/about">Read More</Link>
               </div>
             </div>
           </div>

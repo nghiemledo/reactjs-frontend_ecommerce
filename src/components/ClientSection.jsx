@@ -1,6 +1,21 @@
 import React from "react";
 import clientIMG from "../assets/images/client.jpg";
 
+const testimonials = [
+  {
+    name: "John Doe",
+    title: "Watch Enthusiast",
+    content:
+      "I'm extremely impressed with the quality of the watches I've purchased from LuxChronos. The craftsmanship is outstanding, and the customer service is top-notch. I highly recommend this shop to any watch enthusiast!",
+  },
+  {
+    name: "Emily Smith",
+    title: "Customer",
+    content:
+      "LuxChronos has a fantastic selection of watches, and their prices are unbeatable. I've purchased multiple watches from them, and I've always been pleased with the quality and service. Definitely my go-to shop for watches!",
+  },
+];
+
 const ClientSection = () => {
   return (
     <section className="client_section layout_padding-bottom">
@@ -17,87 +32,31 @@ const ClientSection = () => {
         data-ride="carousel"
       >
         <div className="carousel-inner">
-          <div className="carousel-item">
-            <div className="container">
-              <div className="row">
-                <div className="col-12">
-                  <div className="detail_box">
-                    <div className="img_box">
-                      <img src={clientIMG} alt="" />
+          {testimonials.map((testimonial, index) => (
+            <div
+              key={index}
+              className={`carousel-item ${index === 0 ? "active" : ""}`}
+            >
+              <div className="container">
+                <div className="row">
+                  <div className="col-12">
+                    <div className="detail_box">
+                      <div className="img_box">
+                        <img src={clientIMG} alt="" />
+                      </div>
+                      <div className="name_box">
+                        <h5>{testimonial.name}</h5>
+                        <h6>{testimonial.title}</h6>
+                      </div>
                     </div>
-                    <div className="name_box">
-                      <h5>Sandy Den</h5>
-                      <h6>Many Variations</h6>
+                    <div className="detail_text">
+                      <p>{testimonial.content}</p>
                     </div>
-                  </div>
-                  <div className="detail_text">
-                    <p>
-                      There are many variations of passages of Lorem Ipsum
-                      available, but the majority have suffered alteration in
-                      some form, by injected humour, or randomised words which
-                      don't look even slightly believable. If you are going to
-                      use a passage of Lorem Ipsum, you need to beThere are many
-                      variations of passages
-                    </p>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="carousel-item">
-            <div className="container">
-              <div className="row">
-                <div className="col-12">
-                  <div className="detail_box">
-                    <div className="img_box">
-                      <img src={clientIMG} alt="" />
-                    </div>
-                    <div className="name_box">
-                      <h5>Sandy Den</h5>
-                      <h6>Many Variations</h6>
-                    </div>
-                  </div>
-                  <div className="detail_text">
-                    <p>
-                      There are many variations of passages of Lorem Ipsum
-                      available, but the majority have suffered alteration in
-                      some form, by injected humour, or randomised words which
-                      don't look even slightly believable. If you are going to
-                      use a passage of Lorem Ipsum, you need to beThere are many
-                      variations of passages
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="carousel-item active">
-            <div className="container">
-              <div className="row">
-                <div className="col-12">
-                  <div className="detail_box">
-                    <div className="img_box">
-                      <img src={clientIMG} alt="" />
-                    </div>
-                    <div className="name_box">
-                      <h5>Sandy Den</h5>
-                      <h6>Many Variations</h6>
-                    </div>
-                  </div>
-                  <div className="detail_text">
-                    <p>
-                      There are many variations of passages of Lorem Ipsum
-                      available, but the majority have suffered alteration in
-                      some form, by injected humour, or randomised words which
-                      don't look even slightly believable. If you are going to
-                      use a passage of Lorem Ipsum, you need to beThere are many
-                      variations of passages
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
         <a
           className="carousel-control-prev"

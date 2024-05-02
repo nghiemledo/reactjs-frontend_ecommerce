@@ -1,9 +1,76 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import BaseAPI, { endpoints } from "../api/BaseAPI";
+import { AppContext } from "../states/AppContext";
 
 const BrandSection = () => {
+  const [product, setProduct] = useState([]);
+  const [category, setCategory] = useState([]);
+  const [categoryName, setCategoryName] = useState("");
+
+  const { handleAddToCart, cartItem } = useContext(AppContext);
+
+  useEffect(() => {
+    BaseAPI.get(endpoints["product"])
+      .then((res) => {
+        setProduct(res.data.data);
+      })
+      .catch((err) => console.log(err));
+
+    BaseAPI.get(endpoints["category"]).then((res) => {
+      const data = res.data.data;
+      setCategory(data);
+    });
+  }, []);
+
+  const renderProducts = (products) => {
+    const limitedProducts = products.slice(5, 13);
+    return limitedProducts.map((item) => {
+      const isInCart = cartItem.find((cartItem) => cartItem.name === item.name);
+      return (
+        <div className="col-3 brand_item-box" key={item.id}>
+          <div
+            className="brand_img-box"
+            style={{
+              backgroundImage: `url(${item.thumbnail})`,
+              backgroundColor: "#fff",
+            }}
+          >
+            {isInCart ? (
+              <a
+                type="button"
+                style={{ color: "#fff", backgroundColor: "grey" }}
+                disabled
+              >
+                In bag
+              </a>
+            ) : (
+              <Link
+                to={`/product/${item.id}/`}
+                type="button"
+                style={{ color: "#fff" }}
+              >
+                View more
+              </Link>
+            )}
+          </div>
+          <div className="brand_detail-box">
+            <h5>
+              $<span> {item.price} </span>
+            </h5>
+            <h6 className=""> {item.name} </h6>
+          </div>
+        </div>
+      );
+    });
+  };
+
   return (
-    <section id="watches" className="brand_section layout_padding2" style={{paddingTop: "100px"}}>
+    <section
+      id="watches"
+      className="brand_section layout_padding2"
+      style={{ paddingTop: "100px" }}
+    >
       <div className="container">
         <div className="brand_heading">
           <h3 className="custom_heading">Our watch brands</h3>
@@ -12,100 +79,10 @@ const BrandSection = () => {
           </p>
         </div>
       </div>
-      <div className="container-fluid brand_item-container">
-        <div className="brand_item-box">
-          <div className="brand_img-box  item-1">
-            <a href="">View More</a>
-          </div>
-          <div className="brand_detail-box">
-            <h5>
-              $<span> 6.791.300 </span>
-            </h5>
-            <h6 className=""> Omega Railmaster 1957 Trilogy Master </h6>
-          </div>
-        </div>
-        <div className="brand_item-box">
-          <div className="brand_img-box  item-2">
-            <a href="">View More</a>
-          </div>
-          <div className="brand_detail-box">
-            <h5>
-              $<span> 7.190.800 </span>
-            </h5>
-            <h6 className="">Omega Seamaster 300 Master Co-Axial Titanium</h6>
-          </div>
-        </div>
-        <div className="brand_item-box">
-          <div className="brand_img-box  item-3">
-            <a href="">View More</a>
-          </div>
-          <div className="brand_detail-box">
-            <h5>
-              $<span> 60 </span>
-            </h5>
-            <h6 className="">best watch</h6>
-          </div>
-        </div>
-        <div className="brand_item-box">
-          <div className="brand_img-box  item-4">
-            <a href="">View More</a>
-          </div>
-          <div className="brand_detail-box">
-            <h5>
-              $<span> 70 </span>
-            </h5>
-            <h6 className="">best watch</h6>
-          </div>
-        </div>
-        <div className="brand_item-box">
-          <div className="brand_img-box  item-5">
-            <a href="">View More</a>
-          </div>
-          <div className="brand_detail-box">
-            <h5>
-              $<span> 6.791.300 </span>
-            </h5>
-            <h6 className="">
-              {" "}
-              Omega Railmaster 1957 Trilogy Master Chronometer Limited{" "}
-            </h6>
-          </div>
-        </div>
-        <div className="brand_item-box">
-          <div className="brand_img-box  item-6">
-            <a href="">View More</a>
-          </div>
-          <div className="brand_detail-box">
-            <h5>
-              $<span> 40 </span>
-            </h5>
-            <h6 className="">best watch</h6>
-          </div>
-        </div>
-        <div className="brand_item-box">
-          <div className="brand_img-box  item-7">
-            <a href="">View More</a>
-          </div>
-          <div className="brand_detail-box">
-            <h5>
-              $<span> 40 </span>
-            </h5>
-            <h6 className="">best watch</h6>
-          </div>
-        </div>
-        <div className="brand_item-box">
-          <div className="brand_img-box  item-8">
-            <a href="">View More</a>
-          </div>
-          <div className="brand_detail-box">
-            <h5>
-              $<span> 4000 </span>
-            </h5>
-            <h6 className="">best watch</h6>
-          </div>
-        </div>
+      <div className="container-fluid brand_item-container row">
+        {renderProducts(product)}
       </div>
-      <a type="button" href="/category" className="btn btn-light">
+      <a type="button" href="/category" className="brandsection-a">
         See more...
       </a>
     </section>

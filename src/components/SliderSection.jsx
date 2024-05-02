@@ -1,5 +1,28 @@
 import React from "react";
 import watchSlider from "../assets/images/watch.png";
+import watchSlider2 from "../assets/images/rolex-datejust-41-126331-0003-removebg-preview.png";
+import watchSlider3 from "../assets/images/Patek_Philippe_Complications_5396R-014_Annual_Calendar___Moonphase-removebg-preview.png";
+
+const sliderItems = [
+  {
+    image: watchSlider,
+    title: "Stylish watches",
+    description:
+      "Unveil Timeless Sophistication: Elevate Your Wrist Game with Our Exquisite Collection, Crafted to Make Every Moment Remarkable.",
+  },
+  {
+    image: watchSlider2,
+    title: "Stylish watches",
+    description:
+      "Unveil Timeless Sophistication: Elevate Your Wrist Game with Our Exquisite Collection, Crafted to Make Every Moment Remarkable.",
+  },
+  {
+    image: watchSlider3,
+    title: "Stylish watches",
+    description:
+      "Unveil Timeless Sophistication: Elevate Your Wrist Game with Our Exquisite Collection, Crafted to Make Every Moment Remarkable.",
+  },
+];
 
 const SliderSection = () => {
   return (
@@ -10,34 +33,36 @@ const SliderSection = () => {
         data-bs-ride="carousel"
       >
         <div className="carousel-inner">
-          <div className="carousel-item active" data-bs-interval="10000">
-            <div className="slider_item-box">
-              <div className="slider_item-container">
-                <div className="container">
-                  <div className="row">
-                    <div className="col-md-5">
-                      <div className="slider_img-box">
-                        <div>
-                          <img src={watchSlider} alt="" className="" />
+          {sliderItems.map((item, index) => (
+            <div
+              key={index}
+              className={`carousel-item ${index === 0 ? "active" : ""}`}
+              data-bs-interval="10000"
+            >
+              <div className="slider_item-box">
+                <div className="slider_item-container">
+                  <div className="container">
+                    <div className="row">
+                      <div className="col-md-5">
+                        <div className="slider_img-box">
+                          <div>
+                            <img src={item.image} alt="" className="" />
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="col-md-7">
-                      <div className="slider_item-detail">
-                        <div>
-                          <h1>Stylish watches</h1>
-                          <p>
-                            Unveil Timeless Sophistication: Elevate Your Wrist
-                            Game with Our Exquisite Collection, Crafted to Make
-                            Every Moment Remarkable.
-                          </p>
-                          <div className="d-flex">
-                            <a href="#about" className="slider-btn1 mr-3">
-                              Read More
-                            </a>
-                            <a href="#contact" className="slider-btn2">
-                              Contact Us
-                            </a>
+                      <div className="col-md-7">
+                        <div className="slider_item-detail">
+                          <div>
+                            <h1>{item.title}</h1>
+                            <p>{item.description}</p>
+                            <div className="d-flex">
+                              <a href="#about" className="slider-btn1 mr-3">
+                                Read More
+                              </a>
+                              <a href="#contact" className="slider-btn2">
+                                Contact Us
+                              </a>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -46,81 +71,7 @@ const SliderSection = () => {
                 </div>
               </div>
             </div>
-          </div>
-          <div className="carousel-item" data-bs-interval="10000">
-            <div className="slider_item-box">
-              <div className="slider_item-container">
-                <div className="container">
-                  <div className="row">
-                    <div className="col-md-5">
-                      <div className="slider_img-box">
-                        <div>
-                          <img src={watchSlider} alt="" className="" />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-md-7">
-                      <div className="slider_item-detail">
-                        <div>
-                          <h1>Stylish watches</h1>
-                          <p>
-                            consectetur adipiscing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore magna aliqua. Ut enim
-                            ad minim veniam, quis nostrud exercitation ullamco l
-                          </p>
-                          <div className="d-flex">
-                            <a href="#about" className="slider-btn1 mr-3">
-                              Read More
-                            </a>
-                            <a href="#contact" className="slider-btn2">
-                              Contact Us
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="carousel-item" data-bs-interval="10000">
-            <div className="slider_item-box">
-              <div className="slider_item-container">
-                <div className="container">
-                  <div className="row">
-                    <div className="col-md-5">
-                      <div className="slider_img-box">
-                        <div>
-                          <img src={watchSlider} alt="" className="" />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-md-7">
-                      <div className="slider_item-detail">
-                        <div>
-                          <h1 className="">Stylish watches</h1>
-                          <p>
-                            consectetur adipiscing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore magna aliqua. Ut enim
-                            ad minim veniam, quis nostrud exercitation ullamco l
-                          </p>
-                          <div className="d-flex">
-                            <a href="#about" className="slider-btn1 mr-3">
-                              Read More
-                            </a>
-                            <a href="#contact" className="slider-btn2">
-                              Contact Us
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
         <div className="custom_carousel-control">
           <a
@@ -130,8 +81,8 @@ const SliderSection = () => {
             data-bs-target="#carouselExampleControls"
             data-bs-slide="prev"
           >
-            <span class="carousel-control-prev" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
+            <span className="carousel-control-prev" aria-hidden="true"></span>
+            <span className="visually-hidden">Previous</span>
           </a>
           <a
             className="carousel-control-next"
@@ -139,8 +90,8 @@ const SliderSection = () => {
             role="button"
             data-bs-slide="next"
           >
-            <span class="carousel-control-next" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
+            <span className="carousel-control-next" aria-hidden="true"></span>
+            <span className="visually-hidden">Next</span>
           </a>
         </div>
       </div>

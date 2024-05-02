@@ -2,31 +2,27 @@ import React, { useEffect, useState } from "react";
 import BaseAPI, { endpoints } from "../api/BaseAPI";
 import { useContext } from "react";
 import { AppContext } from "../states/AppContext";
+import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
 
 const CategoryPage2 = () => {
   const [product, setProduct] = useState([]);
+  const [category, setCategory] = useState([]);
+  const [categoryName, setCategoryName] = useState("");
   const [sortedProduct, setSortedProduct] = useState([]);
-  const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   useEffect(() => {
     BaseAPI.get(endpoints["product"])
       .then((res) => {
-        console.log("Product data", res.data);
         setProduct(res.data.data);
       })
       .catch((err) => console.log(err));
 
-    BaseAPI.get(endpoints["category"])
-      .then((res) => {
-        console.log("Category data", res.data);
-        let response = res.data;
-        response.forEach((category) => {
-          console.log("Category name:", category.name);
-        });
-        setCategories(res.data.data);
-      })
-      .catch((err) => console.log(err));
+    BaseAPI.get(endpoints["category"]).then((res) => {
+      const data = res.data.data;
+      setCategory(data);
+    });
   }, []);
 
   const { handleAddToCart, cartItem } = useContext(AppContext);
@@ -74,26 +70,35 @@ const CategoryPage2 = () => {
                 style={{ color: "#fff", backgroundColor: "grey" }}
                 disabled
               >
-                In cart
+                In bag
               </a>
             ) : (
-              <a
+              // <a
+              //   type="button"
+              //   style={{ color: "#fff" }}
+              //   onClick={() =>
+              //     handleAddToCart({
+              //       id: item.id,
+              //       name: item.name,
+              //       unit: 1,
+              //       price: item.price,
+              //       discount: item.discount,
+              //       amount: 1,
+              //       category_id: item.category_id,
+              //       thumbnail: item.thumbnail,
+              //     })
+              //   }
+              // >
+              //   Buy now
+              // </a>
+
+              <Link
+                to={`/product/${item.id}/`}
                 type="button"
                 style={{ color: "#fff" }}
-                onClick={() =>
-                  handleAddToCart({
-                    id: item.id,
-                    name: item.name,
-                    unit: 1,
-                    price: item.price,
-                    discount: item.discount,
-                    amount: 1,
-                    thumbnail: item.thumbnail,
-                  })
-                }
               >
-                Buy now
-              </a>
+                View more
+              </Link>
             )}
           </div>
           <div className="brand_detail-box">
@@ -113,13 +118,21 @@ const CategoryPage2 = () => {
       className="brand_section layout_padding2"
       style={{ paddingTop: "100px" }}
     >
+      <Helmet>
+        <title>Category | LuxChronos</title>
+      </Helmet>
       <div className="container">
         <div className="brand_heading">
           <h3 className="custom_heading">Our watch brands</h3>
           <p className="font-weight-bold">
             Explore a curated selection of renowned watch brands at LuxChronos.
           </p>
-          <div className="float-end ml-3 sort">
+
+          <div
+            className="dropdown float-end ml-3 sort"
+            data-bs-toggle="dropdown"
+            style={{ userSelect: "none" }}
+          >
             Sort by
             <div className="sort-icon">
               <svg viewBox="0 0 24 24" style={{ width: 24, height: 24 }}>
@@ -129,27 +142,35 @@ const CategoryPage2 = () => {
                 />
               </svg>
             </div>
-            <ul className="dropdown-menu">
+            <ul
+              className="dropdown-menu"
+              style={{ marginLeft: "-90px", zIndex: "2 !important" }}
+            >
+              {category.map((item, index) => {
+                return (
+                  <li key={item.id}>
+                    <a
+                      className="dropdown-item"
+                      href="#"
+                      onClick={() => handleSorting(item.id)}
+                    >
+                      {item.name}
+                    </a>
+                  </li>
+                );
+              })}
+              <li>
+                <hr className="dropdown-divider" />
+              </li>
               <li>
                 <a
                   className="dropdown-item"
                   href="#"
                   onClick={() => handleSorting(null)}
                 >
-                  All
+                  ALL
                 </a>
               </li>
-              {categories.map((category) => (
-                <li key={category.name}>
-                  <a
-                    className="dropdown-item"
-                    href="#"
-                    onClick={() => handleSorting(category.id)}
-                  >
-                    {category.name}
-                  </a>
-                </li>
-              ))}
             </ul>
           </div>
         </div>
@@ -157,9 +178,6 @@ const CategoryPage2 = () => {
       <div className="container-fluid brand_item-container row">
         {renderProducts(selectedCategory !== null ? sortedProduct : product)}
       </div>
-      {/* <a type="button" href="/category" className="btn btn-light">
-        See more...
-      </a> */}
     </section>
   );
 };

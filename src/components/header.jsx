@@ -3,25 +3,31 @@ import logoLuxChoronos from "../assets/images/luxury-shop.png";
 import cookies from "react-cookies";
 import { Link, useNavigate } from "react-router-dom";
 import { AppContext } from "../states/AppContext";
-import CartPage from "../pages/CartPage";
+import bagIcon from "../assets/images/bag.png";
+import signinIcon from "../assets/images/sign-in.png";
+import lockIcon from "../assets/images/lock.png";
 
 const Header = () => {
   let user = cookies.load("user");
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
 
-  const {cartItem} = useContext(AppContext)
-
-  const handleLogout = () => {
-    cookies.remove("access");
-    cookies.remove("user");
-    navigate("/login");
-  };
+  const { cartItem, handleLogout } = useContext(AppContext);
 
   let Authentication = (
     <>
-      <Link className="nav-link" to="/login">
-        Login
+      <Link className="nav-link" to="/signin">
+        <img
+          src={signinIcon}
+          width={15}
+          height={15}
+          style={{
+            border: "white",
+            marginTop: "-3px",
+            marginRight: "3px",
+          }}
+        />
+        Sign in
       </Link>
     </>
   );
@@ -29,7 +35,7 @@ const Header = () => {
   if (user != null) {
     Authentication = (
       <div className="action" style={{ cursor: "pointer", marginTop: "2px" }}>
-        <a
+        <Link
           className="nav-link dropdown-toggle"
           onClick={() => setMenuOpen(!menuOpen)}
         >
@@ -38,7 +44,7 @@ const Header = () => {
             style={{ marginRight: "5px", color: "grey" }}
           />
           <strong style={{ color: "grey" }}>{user.data.username}</strong>
-        </a>
+        </Link>
         <div className={menuOpen ? "menu active" : "menu"}>
           <h3>
             {user.data.username}
@@ -48,19 +54,19 @@ const Header = () => {
           <ul>
             <li>
               <i class="zmdi zmdi-account-o mt-0 me-2" />
-              <a href="/notfound/">My profile</a>
+              <Link to="/user/profile">My profile</Link>
             </li>
             <li>
-              <i class="zmdi zmdi-edit mt-0 me-2" />
-              <a href="/notfound/">Edit profile</a>
+              <i class="zmdi zmdi-lock mt-0 me-2" />
+              <Link to="/user/set_password/">Set password</Link>
             </li>
             <li>
               <i class="zmdi zmdi-settings mt-0 me-2" />
-              <a href="/notfound/">Setting</a>
+              <Link to="/notfound/">Setting</Link>
             </li>
             <li>
               <i class="zmdi zmdi-help mt-0 me-2" />
-              <a href="/notfound/">Help</a>
+              <Link to="/notfound/">Help</Link>
             </li>
             <li>
               <fa-icon
@@ -92,7 +98,7 @@ const Header = () => {
                   </g>
                 </svg>
               </fa-icon>
-              <Link to="#" onClick={handleLogout}>
+              <Link to="/signin" onClick={handleLogout}>
                 Logout
               </Link>
             </li>
@@ -109,7 +115,7 @@ const Header = () => {
         style={{ position: "fixed", backgroundColor: "#b5caee", zIndex: "5" }}
       >
         <nav className="navbar navbar-expand-lg custom_nav-container pt-3">
-          <Link className="navbar-brand"to="/">
+          <Link className="navbar-brand" to="/">
             <img src={logoLuxChoronos} alt="LuxChronos Logo" />
             <span>LuxChronos</span>
           </Link>
@@ -128,15 +134,15 @@ const Header = () => {
             <div className="d-flex ml-auto flex-column flex-lg-row align-items-center">
               <ul className="navbar-nav custom_navbar-nav">
                 <li className="nav-item active">
-                  <Link className="nav-link" to="/#about">
+                  <Link className="nav-link" to="/about">
                     About <span className="sr-only"></span>
                   </Link>
                 </li>
-                <li className="nav-item">
+                {/* <li className="nav-item">
                   <Link className="nav-link" to="#">
                     Blog <span className="sr-only"></span>
                   </Link>
-                </li>
+                </li> */}
                 <li className="nav-item">
                   <Link className="nav-link" to="/category">
                     {" "}
@@ -144,8 +150,43 @@ const Header = () => {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to='/cart'>
-                    Cart ({cartItem.length})
+                  <Link
+                    className="nav-link"
+                    to="/cart"
+                    style={{ display: "flex" }}
+                  >
+                    <div style={{ position: "relative", marginRight: "5px" }}>
+                      <img
+                        src={bagIcon}
+                        width={15}
+                        height={15}
+                        style={{
+                          border: "white",
+                          marginTop: "-3px",
+                          marginRight: "3px",
+                        }}
+                      />
+                      <span
+                        className=""
+                        style={{
+                          position: "absolute",
+                          top: "-5px",
+                          right: "-5px",
+                          background: "#fff",
+                          borderRadius: "50%",
+                          width: "15px",
+                          height: "15px",
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          color: "black",
+                          fontSize: "10px",
+                        }}
+                      >
+                        {cartItem.length}
+                      </span>
+                    </div>
+                    My bag
                   </Link>
                 </li>
                 <li className="nav-item">{Authentication}</li>

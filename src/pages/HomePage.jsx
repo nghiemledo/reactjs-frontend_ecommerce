@@ -13,7 +13,7 @@ const HomePage = () => {
   return (
     <div>
       <Helmet>
-        <title>Home | LuxChronos</title>
+        <title>LuxChronos</title>
       </Helmet>
       <div className="hero_area_slider">
         <SliderSection />

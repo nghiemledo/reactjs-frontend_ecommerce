@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import SignupImg from "../../assets/images/signup-image.jpg";
 import { Helmet } from "react-helmet";
 import BaseAPI, { endpoints } from "../../api/BaseAPI";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
   const navigate = useNavigate();
+  const [error, setError] = useState("");
 
   const handleChange = () => {
     setError("");
@@ -43,8 +43,7 @@ const Signup = () => {
         email: email,
         password: password,
       });
-      console.log(response);
-      navigate("/login");
+    navigate("/signin");
     } catch (error) {
       if (error.response.status === 401) {
         setError("Invalid username or password");
@@ -117,7 +116,6 @@ const Signup = () => {
                   <i className="zmdi zmdi-alert-circle" /> {error}
                 </div>
               )}
-
               <div className="form-group">
                 <input
                   type="checkbox"
@@ -150,9 +148,9 @@ const Signup = () => {
             <figure>
               <img src={SignupImg} alt="sing up image" />
             </figure>
-            <a href="/login/" className="signup-image-link">
+            <Link to="/signin" className="signup-image-link">
               I am already member
-            </a>
+            </Link>
           </div>
         </div>
       </div>
