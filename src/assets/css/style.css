@@ -36,8 +36,6 @@ body {
   text-transform: uppercase;
   font-weight: bold;
 }
-
-/*header section*/
 .hero_area {
   height: 10vh;
   background-color: #b5caee;
@@ -146,9 +144,6 @@ a:focus {
   right: 0;
 }
 
-
-/*end header section*/
-/* slider section */
 .hero_area_slider {
   height: 90vh;
   background-color: #b5caee;
@@ -262,7 +257,6 @@ a:focus {
   background-image: url(../images/next.png);
 }
 
-/* end slider section */
 .bg {
   background-image: url(../images/bg.jpg);
   background-size: cover;
@@ -704,7 +698,6 @@ a:focus {
   background-image: url(../images/envelope-white.png);
 }
 
-/* footer section*/
 .footer_section {
   background-color: #273135;
   padding: 20px;
@@ -992,7 +985,6 @@ svg {
   color: #777;
   font-size: 0.8rem;
   font-weight: 300;
-  /* font-family: Open Sans, sans-serif; */
 }
 .toolbox-item .select-custom {
   margin-bottom: 0;
@@ -1006,26 +998,6 @@ svg {
 .toolbox select.form-control:not([size]):not([multiple]) {
   height: 34px;
 }
-/* .toolbox .select-custom:after {
-  right: 1.5rem;
-  font-size: 1rem;
-  color: #222529;
-}
-.select-custom:after {
-  display: inline-block;
-  position: absolute;
-  top: 50%;
-  right: 1rem;
-  -webkit-transform: translateY(-50%);
-  transform: rotate(90deg);
-  font-size: 1rem;
-  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
-  padding-bottom: 1px;
-  margin-top: -12px;
-  margin-right: -10px;
-  cursor: pointer;
-  font-weight: 300;
-} */
 .toolbox .select-custom .form-control {
   max-width: 160px;
   padding-right: 2.5rem;
@@ -1063,7 +1035,6 @@ svg {
   padding: 0 .8rem;
   color: #777;
 }
-/* cateogry-product */
 .skeleton-body.loaded.skel-shop-products .product-default {
   display: block;
 }
@@ -1081,44 +1052,10 @@ svg {
   transform-origin: .5em 50%;
 }
 .vertical-divider {
-  height: 100%; /* Chiều cao bằng chiều cao của cột */
-  width: 2px; /* Độ dày của thanh dọc */
-  background-color: #ccc; /* Màu sắc của thanh dọc */
+  height: 100%; 
+  width: 2px; 
+  background-color: #ccc; 
 }
-/* .product-card {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  height: 320px;
-}
-.product-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(37, 37, 37, 0.9);
-  z-index: 1;
-  transform: translateY(320px);
-  transition: transform 0.3s;
-}
-.product-card a {
-  display: none;
-  opacity: 0;
-  background-color: transparent;
-  border: 1px solid #999999;
-  color: #f9fafa;
-  padding: 12px 35px;
-  font-size: 15px;
-  z-index: 3;
-  transition: opacity 0.4s;
-} */
-
 .loading-container {
   display: flex;
   justify-content: center;
@@ -1127,27 +1064,18 @@ svg {
 } 
 
 
-/* Signup */
-/* Reset CSS */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Body styles */
-
-
-/* Signup section styles */
 .signup {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
-
-
-
 .signup-content {
   display: flex;
 }
@@ -1166,7 +1094,6 @@ svg {
   height: auto;
 }
 
-/* Form styles */
 .form-title {
   text-align: center;
   margin-bottom: 30px;
@@ -1229,7 +1156,6 @@ svg {
   background-color: #0056b3;
 }
 
-/* Signup image link styles */
 .signup-image-link {
   display: inline-block;
   margin-top: 20px;
@@ -1242,8 +1168,6 @@ svg {
   text-decoration: underline;
 }
 
-/* Login */
-/* Sign-in section styles */
 .sign-in {
   display: flex;
   justify-content: center;
@@ -1251,12 +1175,10 @@ svg {
   height: 100vh;
 }
 
-/* Sign-in content styles */
 .signin-content {
   display: flex;
 }
 
-/* Sign-in image styles */
 .signin-image {
   flex: 1;
   text-align: center;
@@ -1267,29 +1189,24 @@ svg {
   height: auto;
 }
 
-/* Sign-in form styles */
 .signin-form {
   flex: 1;
   padding: 20px;
 }
 
-/* Form title styles */
 .form-title {
   text-align: center;
   margin-bottom: 30px;
 }
 
-/* Form group styles */
 .form-group {
   margin-bottom: 20px;
 }
 
-/* Form group label styles */
 .form-group label {
   position: relative;
 }
 
-/* Icon styles */
 .form-group label i {
   position: absolute;
   left: 10px;
@@ -1297,7 +1214,6 @@ svg {
   transform: translateY(-50%);
 }
 
-/* Form input styles */
 .form-group input {
   width: calc(100% - 40px);
   padding: 10px 40px 10px 30px;
@@ -1305,7 +1221,6 @@ svg {
   border-radius: 5px;
 }
 
-/* Remember me checkbox styles */
 .form-group .agree-term {
   display: inline-block;
   margin-right: 5px;
@@ -1315,7 +1230,6 @@ svg {
   font-size: 14px;
 }
 
-/* Form submit button styles */
 .form-submit input {
   width: 100%;
   background-color: #007bff;
@@ -1330,99 +1244,9 @@ svg {
   background-color: #0056b3;
 }
 
-/* Social login styles */
-/* .social-login {
-  margin-top: 20px;
-  text-align: center;
-  margin-right: 52px;
-}
-
-.social-label {
-  font-size: 16px;
-  margin-bottom: 15px;
-} */
-
-/* .socials {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-    display: -webkit-flex;
-} */
-
-/* .socials li {
-  display: inline-block;
-  margin-right: 10px;
-} */
-
-/* .socials li:last-child {
-  margin-right: 0;
-}
-
-.socials li a {
-  display: block;
-  width: 40px;
-  height: 40px;
-  background-color: #007bff;
-  color: #fff;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 40px;
-}
-
-.socials li a:hover {
-  background-color: #0056b3;
-} */
 .zmdi {
   margin-top: -5px;
 }
-
-
-
-/* .social-login {
-  align-items: center;
-  -moz-align-items: center;
-  -webkit-align-items: center;
-  -o-align-items: center;
-  -ms-align-items: center;
-  margin-top: 40px; }
-
-.social-label {
-  display: inline-block;
-  margin-right: 15px; 
-}
-
-.socials li {
-  padding: 5px; }
-  .socials li:last-child {
-    margin-right: 0px; }
-  .socials li a {
-    text-decoration: none; }
-    .socials li a i {
-      width: 30px;
-      height: 30px;
-      color: #fff;
-      font-size: 14px;
-      border-radius: 5px;
-      -moz-border-radius: 5px;
-      -webkit-border-radius: 5px;
-      -o-border-radius: 5px;
-      -ms-border-radius: 5px;
-      transform: translateZ(0);
-      -moz-transform: translateZ(0);
-      -webkit-transform: translateZ(0);
-      -o-transform: translateZ(0);
-      -ms-transform: translateZ(0);
-      -webkit-transition-duration: 0.3s;
-      transition-duration: 0.3s;
-      -webkit-transition-property: transform;
-      transition-property: transform;
-      -webkit-transition-timing-function: ease-out;
-      transition-timing-function: ease-out; }
-  .socials li:hover a i {
-    -webkit-transform: scale(1.3) translateZ(0);
-    transform: scale(1.3) translateZ(0); } */
-
 .social-login {
   display: flex;
     display: -webkit-flex;
@@ -1436,7 +1260,6 @@ svg {
 .social-label {
   display: inline-block;
   margin-right: 15px;
-  /* font-size: 13px; */
 }
 .socials {
   list-style-type: none;
@@ -1532,7 +1355,6 @@ svg {
   padding-left: 10px;
 }
 
-/* Menu user */
 
 .action .profile {
   position: relative;
@@ -1635,7 +1457,6 @@ svg {
   padding: 10px;
 }
 
-/* Category */
 .sort {
   display: flex;
   cursor: pointer;
@@ -1644,19 +1465,10 @@ svg {
 .dropdown-item:hover {
   color: blue;
 }
-
-/* Category page */
-
-
-/* Các styles khác của sản phẩm nếu cần */
-
-/* Product Detail page */
-/* @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); */
 .product-detail {
   margin-top: 80px;
   margin-bottom: 6%;
   height: 100%;
-  /* display: flex; */
   align-items: center;
   justify-content: center;
 }
