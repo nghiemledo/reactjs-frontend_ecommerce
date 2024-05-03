@@ -16,6 +16,7 @@ import founder from "../assets/images/team/founder.jpg";
 import coFounder from "../assets/images/team/co-founder.jpg";
 import coFounder03 from "../assets/images/team/co-founder03.jpg";
 import coFounder04 from "../assets/images/team/co-founder04.jpg";
+import coFounder05 from "../assets/images/team/co-founder05.jpg";
 import microsoftLogo from "../assets/images/logos/microsoft.svg";
 import facebookLogo from "../assets/images/logos/facebook.svg";
 import ibmLogo from "../assets/images/logos/ibm.svg";
@@ -287,7 +288,7 @@ const AboutPage = () => {
                   </div>
                   <div className="timeline-body">
                     <p className="text-muted">
-                      In March 2011, LuxChronos officially became an established
+                      In March 2023, LuxChronos officially became an established
                       brand in the watch industry. With a focus on quality and
                       craftsmanship, we embarked on a journey to redefine the
                       standards of luxury timepieces.
@@ -310,7 +311,7 @@ const AboutPage = () => {
                   </div>
                   <div className="timeline-body">
                     <p className="text-muted">
-                      In December 2015, LuxChronos made a significant shift by
+                      In December 2023, LuxChronos made a significant shift by
                       transitioning to a full-service model. This strategic move
                       allowed us to expand our offerings and provide
                       comprehensive solutions to our customers. We enhanced our
@@ -379,11 +380,10 @@ const AboutPage = () => {
                   <img
                     className="mx-auto rounded-circle"
                     style={{ height: "250px" }}
-
-                    src={coFounder}
-                    alt="Parveen Anand"
+                    src={coFounder05}
+                    alt="Nguyen Tam Thanh"
                   />
-                  <h4>Nguyen Thi Van Anh</h4>
+                  <h4>Nguyen Tam Thanh</h4>
                   <p className="text-muted">Lead Watch Designer</p>
                   <div className="social-icons">
                     <a className="btn btn-dark btn-social mx-2" href="#!">
@@ -427,9 +427,9 @@ const AboutPage = () => {
                     className="mx-auto rounded-circle"
                     src={coFounder04}
                     style={{ height: "250px" }}
-                    alt="Kim Kien Dao"
+                    alt="Dao Kim Kien"
                   />
-                  <h4>Kim Kien Dao</h4>
+                  <h4>Dao Kim Kien</h4>
                   <p className="text-muted">Lead Developer</p>
                   <div className="social-icons">
                     <a className="btn btn-dark btn-social mx-2" href="#!">
